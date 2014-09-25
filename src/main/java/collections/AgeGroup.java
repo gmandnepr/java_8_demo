@@ -1,4 +1,4 @@
-package streams;
+package collections;
 
 public class AgeGroup {
 
