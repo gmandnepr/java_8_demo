@@ -1,6 +1,6 @@
 package collections;
 
-public class AgeGroup {
+public class AgeGroup implements Comparable<AgeGroup> {
 
     private final int age;
     private int count;
@@ -20,6 +20,11 @@ public class AgeGroup {
 
     public void incCount() {
         count++;
+    }
+
+    @Override
+    public int compareTo(AgeGroup o) {
+        return -Integer.compare(this.getCount(), o.getCount());
     }
 
     @Override
