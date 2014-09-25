@@ -61,7 +61,7 @@ public class JavaCollections {
         List<AgeGroup> reduced = new ArrayList<>();
         reduced.addAll(a);
 
-        Optional<AgeGroup> found = a.stream().filter((item) -> item.equals(bb)).findFirst();
+        Optional<AgeGroup> found = a.stream().filter((item) -> item.getAge() == bb.getAge()).findFirst();
         if (found.isPresent()) {
             found.get().incCount();
         } else {
