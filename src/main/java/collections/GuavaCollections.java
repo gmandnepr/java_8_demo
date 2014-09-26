@@ -1,8 +1,10 @@
 package collections;
 
 import com.google.common.collect.FluentIterable;
+import com.google.common.collect.ImmutableList;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -26,5 +28,11 @@ public class GuavaCollections {
         System.out.println(namesOfAdultPersonsByGuava);
 
         assert namesOfAdultPersonsByJava.equals(namesOfAdultPersonsByGuava);
+
+        List<AgeGroup> ageGroups = ImmutableList.copyOf(persons).stream().
+                map(JavaCollections::map).
+                reduce(JavaCollections::reduce).get();
+
+        FluentIterable.from(ageGroups).forEach(System.out::println);
     }
 }
